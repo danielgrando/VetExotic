@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Typography } from '@mui/material'
+import { CardContent, CardMedia, Typography } from '@mui/material'
 import { CardAnimals } from './styles'
 import rat from '../../assets/rat.svg'
 interface Card {

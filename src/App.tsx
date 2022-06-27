@@ -4,7 +4,6 @@ import { ThemeProvider, DefaultTheme } from 'styled-components'
 import light from './styles/themes/light'
 import dark from './styles/themes/dark'
 
-import Header from './components/Header'
 import GlobalStyle from './styles/global'
 import ResponsiveDrawer from './components/Drawer';
 

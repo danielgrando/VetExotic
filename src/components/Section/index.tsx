@@ -1,8 +1,5 @@
-
-import React, { useContext } from 'react'
 import CardAnimal from '../CardAnimal'
 import { BoxCard, ContainerCustom } from './styles'
-
 
 const Section: React.FC = () => {
     const cards = [

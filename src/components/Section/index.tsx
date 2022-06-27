@@ -1,5 +1,4 @@
 
-import { Box, Card, CardContent, Typography } from '@mui/material'
 import React, { useContext } from 'react'
 import CardAnimal from '../CardAnimal'
 import { BoxCard, ContainerCustom } from './styles'

@@ -1,6 +1,7 @@
 import { CardContent, CardMedia, Typography } from '@mui/material'
 import { CardAnimals } from './styles'
 import rat from '../../assets/rat.svg'
+import { useNavigate } from 'react-router-dom'
 interface Card {
     id: number
 }
@@ -10,8 +11,10 @@ interface Props {
 }
 
 const CardAnimal: React.FC<Props> = ({ card }) => {
+    const navigate = useNavigate()
+
     return (
-        <CardAnimals>
+        <CardAnimals onClick={() => navigate('/medicines')} >
             <CardContent>
                 <CardMedia
                     component="img"

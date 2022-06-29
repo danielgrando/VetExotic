@@ -6,7 +6,8 @@ export default {
     colors: {
         primary: '#000000',
         secundary: '#333',
-        tertiary: '133,240,255,1',
+        // tertiary: '133,240,255,1',
+        tertiary: '#fff',
 
 
         background: 'white',

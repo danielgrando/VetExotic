@@ -1,7 +1,7 @@
 import CardAnimal from '../CardAnimal'
 import { BoxCard, ContainerCustom } from './styles'
 
-const Section: React.FC = () => {
+const Animals: React.FC = () => {
     const cards = [
         { id: 1 },
         { id: 2 },
@@ -26,4 +26,4 @@ const Section: React.FC = () => {
     )
 }
 
-export default Section
+export default Animals

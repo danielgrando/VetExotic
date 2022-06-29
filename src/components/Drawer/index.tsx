@@ -10,11 +10,9 @@ import Toolbar from '@mui/material/Toolbar';
 import { useState, useContext } from 'react';
 import { ThemeContext } from 'styled-components'
 import Header from '../Header';
-import { BoxMain, DrawerDesktop, DrawerMobile, ListItemTextDrawer, TextSection } from './style';
-import Section from '../Section';
+import { DrawerDesktop, DrawerMobile, ListItemTextDrawer } from './style';
 
 const drawerWidth = 240;
-
 interface Props {
     toggleTheme: () => void
     window?: () => Window;
@@ -87,10 +85,6 @@ export default function ResponsiveDrawer(props: Props) {
                         {drawer}
                     </DrawerDesktop>
                 </Box>
-                <BoxMain>
-                    <TextSection >Selecione um dos grupos de animais abaixo para iniciar a consulta:</TextSection>
-                    <Section />
-                </BoxMain>
             </Box >
         </>
     );

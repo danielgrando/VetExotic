@@ -5,6 +5,9 @@ import light from './styles/themes/light'
 import dark from './styles/themes/dark'
 
 import GlobalStyle from './styles/global'
+import { BrowserRouter } from 'react-router-dom'
+import { AppRoutes } from './routes';
+import { ThemeContextProvider } from './ThemeContext/themeContext';
 import ResponsiveDrawer from './components/Drawer';
 
 function App() {
@@ -15,13 +18,15 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <GlobalStyle />
-        <ResponsiveDrawer toggleTheme={toggleTheme} />
-      </div>
-    </ThemeProvider>
-
+    <BrowserRouter>
+      <ThemeContextProvider>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <ResponsiveDrawer toggleTheme={toggleTheme} />
+          <AppRoutes />
+        </ThemeProvider>
+      </ThemeContextProvider>
+    </BrowserRouter>
   );
 }
 

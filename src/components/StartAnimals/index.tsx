@@ -1,7 +1,6 @@
 import Animals from "../Animals"
 import { BoxMain, TextSection } from "./styles"
 
-
 const StartAnimals: React.FC = () => {
     return (
         <BoxMain>

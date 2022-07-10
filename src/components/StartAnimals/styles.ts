@@ -6,13 +6,10 @@ export const BoxMain = styled('div')`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;  
-    min-width: 100vw;
+    width: 100%;
+    height: 100vh;
 `
-
-export const TextSection = styled('h2')`
-    padding-top: 4.5em;
-    padding-left: 1em;
-    margin-bottom: -30px;
+export const TextSection = styled('h2')` 
+    padding: 0.5rem;
     font-weight: 400;
 `

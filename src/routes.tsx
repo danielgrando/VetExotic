@@ -6,7 +6,7 @@ export const AppRoutes = () => {
     return (
         <Routes>
             <Route path='/' element={<StartAnimals />} />
-            <Route path='/medicines' element={<Medicines />} />
+            <Route path='/medicines/:animal' element={<Medicines />} />
             <Route path='*' element={<Navigate to='/' />} />
         </Routes>
     )

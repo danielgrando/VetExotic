@@ -22,8 +22,10 @@ function App() {
       <ThemeContextProvider>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <ResponsiveDrawer toggleTheme={toggleTheme} />
-          <AppRoutes />
+          <div style={{ display: 'flex' }}>
+            <ResponsiveDrawer toggleTheme={toggleTheme} />
+            <AppRoutes />
+          </div>
         </ThemeProvider>
       </ThemeContextProvider>
     </BrowserRouter>

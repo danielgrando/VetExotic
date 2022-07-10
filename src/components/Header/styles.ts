@@ -16,5 +16,6 @@ export const TextHeader = styled.h2`
     letter-spacing: 3px;
     font-weight: 400 !important;
     font-size: 2em;
+    cursor: pointer;
     color: ${props => props.theme.colors.textTitle}
 ` 

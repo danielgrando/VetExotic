@@ -37,8 +37,7 @@ export const ContainerMedicineDetails = styled.div`
     margin-top: 3rem;
 `
 export const Classification = styled.h3`
-    height: 35%;
-    max-height: 40%;
+    height: 30%;
     color: ${props => props.theme.colors.text} !important;
 `
 export const ButtonDosage = styled.button`

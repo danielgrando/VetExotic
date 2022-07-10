@@ -1,6 +1,6 @@
 import { Box } from "@mui/material"
 import styled from "styled-components";
-
+import { ReactComponent as Medicine } from '../../assets/medicine.svg'
 
 export const ContainerCustom = styled(Box)`
     display: flex;
@@ -24,10 +24,15 @@ export const ContainerHeader = styled.div`
 
 export const MedicineTitle = styled.h2`
     font-size: 1.3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
 `
+export const MedicineIcon = styled(Medicine)`
+    position: absolute;
+    left: -25px;
+    top: -2px;
+    right: 0px;
+`
+
 export const ContainerMedicineDetails = styled.div`
     min-width: 85%;
     min-height: 65%;
@@ -88,4 +93,7 @@ export const ButtonBibliography = styled.button`
 export const ContainerButtons = styled.div`
     display: flex;
     flex-direction: column;
+`
+export const SubTitle = styled.span`
+    margin-top: -2em; 
 `

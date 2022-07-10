@@ -1,11 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { ContainerCustom, ContainerHeader } from "../Medicines/styles"
-import { ReactComponent as Medicine } from '../../assets/medicine.svg'
 import Dose from '../../assets/dose.png'
 import Farmacology from '../../assets/farmacology.png'
 import Bibliography from '../../assets/bibliography.png'
 import { ArrowBackRounded } from "@mui/icons-material";
-import { ButtonBibliography, ButtonDosage, ButtonFarmacology, Classification, ContainerButtons, ContainerMedicineDetails, MedicineTitle, TextButton } from "./styles";
+import {
+    ButtonBibliography, ButtonDosage, ButtonFarmacology, Classification,
+    ContainerButtons, ContainerMedicineDetails, MedicineTitle, TextButton,
+    MedicineIcon, SubTitle
+} from "./styles";
 
 const MedicineAnimal: React.FC = () => {
     const navigate = useNavigate()
@@ -16,23 +19,26 @@ const MedicineAnimal: React.FC = () => {
             <ContainerHeader>
                 <ArrowBackRounded style={{ transform: 'scale(1.5)', cursor: 'pointer' }} onClick={() => navigate(`/medicines/${animal}`)} />
                 <MedicineTitle>
-                    <Medicine width={22} height={22} />
-                    &nbsp;{medicine}
+                    <MedicineIcon width={22} height={22} />
+                    {medicine}
                 </MedicineTitle>
                 <div style={{ height: '25px', width: '25px' }} />
             </ContainerHeader>
+            <SubTitle>
+                ({animal})
+            </SubTitle>
             <ContainerMedicineDetails>
                 <Classification>Classificação</Classification>
                 <ContainerButtons>
-                    <ButtonDosage>
+                    <ButtonDosage onClick={() => navigate(`/${animal}/${medicine}/dosages`)}>
                         <img src={Dose} width={22} height={22} style={{ position: "absolute", left: 30 }} alt="Dosage" />&nbsp;
                         <TextButton>Doses</TextButton>
                     </ButtonDosage>
-                    <ButtonFarmacology>
+                    <ButtonFarmacology onClick={() => navigate(`/${animal}/${medicine}/farmacology`)}>
                         <img src={Farmacology} width={22} height={22} style={{ position: "absolute", left: 70 }} alt="Farmacology" />&nbsp;
                         <TextButton>Farmacologia</TextButton>
                     </ButtonFarmacology>
-                    <ButtonBibliography>
+                    <ButtonBibliography onClick={() => navigate(`/${animal}/${medicine}/bibliography`)}>
                         <img src={Bibliography} width={22} height={22} style={{ position: "absolute", left: 25 }} alt="Bibliography" />&nbsp;
                         <TextButton>Referências Bibliográficas</TextButton>
                     </ButtonBibliography>

@@ -1,6 +1,5 @@
 import { Box, Input } from "@mui/material";
 import styled from "styled-components";
-import { ReactComponent as Arrow } from '../../assets/arrow.svg'
 
 export const ContainerCustom = styled(Box)`
     display: flex;
@@ -10,7 +9,6 @@ export const ContainerCustom = styled(Box)`
     width: 100vw;
     height: 100vh;
 `
-
 
 export const ContainerHeader = styled.div`
     display: flex;
@@ -22,12 +20,7 @@ export const ContainerHeader = styled.div`
     min-width: 85%;
     height: 10%;
 `
-
-export const ArrowSVG = styled(Arrow)`
-    cursor: pointer;
-    fill: ${props => props.theme.colors.text} !important;
-`
-export const AnimalTitle = styled.h3`
+export const AnimalTitle = styled.h2`
     font-size: 1.3em;
 `
 

@@ -1,9 +1,9 @@
-import { Search } from "@mui/icons-material";
+import { Search, ArrowBackRounded } from "@mui/icons-material";
 import { InputAdornment } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
-import { ContainerCustom, ContainerHeader, ArrowSVG, AnimalTitle, ContainerSearch, InputMedicine, ContainerTitleMedicines, ContainerMedicines, Medicine } from "./styles";
+import { ContainerCustom, ContainerHeader, AnimalTitle, ContainerSearch, InputMedicine, ContainerTitleMedicines, ContainerMedicines, Medicine } from "./styles";
 
-const Medicines: React.FC = (props) => {
+const Medicines: React.FC = () => {
     const { animal } = useParams();
     const navigate = useNavigate()
 
@@ -11,7 +11,7 @@ const Medicines: React.FC = (props) => {
     return (
         <ContainerCustom>
             <ContainerHeader>
-                <ArrowSVG height={25} width={25} onClick={() => navigate('/')} />
+                <ArrowBackRounded style={{ transform: 'scale(1.5)', cursor: 'pointer' }} onClick={() => navigate('/')} />
                 <AnimalTitle>{animal}</AnimalTitle>
                 <div style={{ height: '25px', width: '25px' }} />
             </ContainerHeader>
@@ -28,7 +28,7 @@ const Medicines: React.FC = (props) => {
             </ContainerTitleMedicines>
             <ContainerMedicines>
                 {medicines.map(medicine => (
-                    <Medicine><p>{medicine.id}</p></Medicine>
+                    <Medicine onClick={() => navigate(`/${animal}/${medicine.id}`)}><p>{medicine.id}</p></Medicine>
                 ))}
             </ContainerMedicines>
         </ContainerCustom >

@@ -32,7 +32,7 @@ export const AnimalTitle = styled.h3`
 `
 
 export const ContainerSearch = styled.div`
-    margin-top: 4vh;
+    margin-top: 3.5vh;
     width: 85%;
 `
 
@@ -49,9 +49,7 @@ export const ContainerTitleMedicines = styled.div`
 `
 export const ContainerMedicines = styled.div`
     min-width: 85%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    display: block;
     margin-top: 1rem;
 `
 

@@ -18,9 +18,7 @@ const Bibliography: React.FC = () => {
                 </BibliographyTitle>
                 <div style={{ height: '25px', width: '25px' }} />
             </ContainerHeader>
-            <SubTitle>
-                ({medicine})
-            </SubTitle>
+            <SubTitle>{medicine}</SubTitle>
         </ContainerCustom >
 
     )

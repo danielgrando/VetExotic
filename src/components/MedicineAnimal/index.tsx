@@ -24,9 +24,7 @@ const MedicineAnimal: React.FC = () => {
                 </MedicineTitle>
                 <div style={{ height: '25px', width: '25px' }} />
             </ContainerHeader>
-            <SubTitle>
-                ({animal})
-            </SubTitle>
+            <SubTitle>{animal}</SubTitle>
             <ContainerMedicineDetails>
                 <Classification>Classificação</Classification>
                 <ContainerButtons>

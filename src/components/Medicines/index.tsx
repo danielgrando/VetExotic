@@ -47,6 +47,8 @@ const Medicines: React.FC = () => {
 
     useEffect(() => {
         getMedicines()
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

@@ -3,7 +3,7 @@ import { InputAdornment } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/api";
-import { AnimalContext } from "../../App";
+import { AnimalContext, MedicineContext } from "../../App";
 import { ContainerCustom, ContainerHeader, AnimalTitle, ContainerSearch, InputMedicine, ContainerTitleMedicines, ContainerMedicines, Medicine } from "./styles";
 
 interface IMedicine {
@@ -31,6 +31,7 @@ const Medicines: React.FC = () => {
     const [medicines, setMedicines] = useState<IMedicine[]>([])
 
     const { animal } = useContext(AnimalContext);
+    const { setMedicine } = useContext(MedicineContext)
 
     const getMedicines = async () => {
         try {
@@ -43,6 +44,11 @@ const Medicines: React.FC = () => {
         } catch (error) {
             console.log(error)
         }
+    }
+
+    const setMedicineContextAndNavigateToMedicinesDetails = (medicine: IMedicine) => {
+        setMedicine!(medicine)
+        navigate(`/${animal?.name}/${medicine.name}`)
     }
 
     useEffect(() => {
@@ -71,7 +77,7 @@ const Medicines: React.FC = () => {
             </ContainerTitleMedicines>
             <ContainerMedicines>
                 {medicines.map((medicine, index) => (
-                    <Medicine onClick={() => navigate(`/${animal?.name}/${medicine.name}`)} key={index}><p>{medicine.name}</p></Medicine>
+                    <Medicine onClick={() => setMedicineContextAndNavigateToMedicinesDetails(medicine)} key={index}><p>{medicine.name}</p></Medicine>
                 ))}
             </ContainerMedicines>
         </ContainerCustom >

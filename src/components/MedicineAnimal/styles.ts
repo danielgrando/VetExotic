@@ -41,10 +41,26 @@ export const ContainerMedicineDetails = styled.div`
     justify-content: space-between;
     margin-top: 3rem;
 `
-export const Classification = styled.h3`
+export const ClassificationDescriptionContainer = styled.div`
     height: 30%;
+`
+export const ClassificationTitle = styled.h3`
     color: ${props => props.theme.colors.text} !important;
 `
+export const ClassificationText = styled.p`
+    font-size: 1em;
+    margin: 0.3rem 0rem 1rem 0rem;
+    color: ${props => props.theme.colors.text} !important;
+`
+export const DescriptionTitle = styled.h3`
+    color: ${props => props.theme.colors.text} !important;
+`
+export const DescriptionText = styled.p`
+    font-size: 1em;
+    margin: 0.3rem 0rem 1rem 0rem;
+    color: ${props => props.theme.colors.text} !important;
+`
+
 export const ButtonDosage = styled.button`
     display: flex;
     position: relative;

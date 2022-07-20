@@ -26,3 +26,14 @@ export const BibliographyTitle = styled.h2`
 export const SubTitle = styled.span`
     margin-top: -2em; 
 `
+
+export const ContainerText = styled.div`
+    max-width: 85%;
+    min-height: 65%;
+    margin-top: 3rem;
+`
+
+export const BibliographyText = styled.p`
+    font-size: 1em;
+`
+

@@ -26,3 +26,15 @@ export const FarmacologyTitle = styled.h2`
 export const SubTitle = styled.span`
     margin-top: -2em; 
 `
+
+export const ContainerText = styled.div`
+    max-width: 85%;
+    min-height: 65%;
+    margin-top: 3rem;
+`
+
+export const FarmacologyText = styled.p`
+    text-align: justify;
+    margin-bottom: 0.3rem;
+    font-size: 1em;
+`

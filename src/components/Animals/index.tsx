@@ -18,7 +18,7 @@ const Animals: React.FC<Props> = ({ animals }) => {
         <ContainerCustom>
             {animals.map((animal) => (
                 <BoxCard key={animal.id}>
-                    <CardAnimal animal={animal} />
+                    <CardAnimal animalProps={animal} />
                 </BoxCard>
             ))}
         </ContainerCustom>

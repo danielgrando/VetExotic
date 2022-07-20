@@ -1,8 +1,9 @@
 import { Search, ArrowBackRounded } from "@mui/icons-material";
 import { InputAdornment } from "@mui/material";
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../../api/api";
+import { AnimalContext } from "../../App";
 import { ContainerCustom, ContainerHeader, AnimalTitle, ContainerSearch, InputMedicine, ContainerTitleMedicines, ContainerMedicines, Medicine } from "./styles";
 
 interface IMedicine {
@@ -25,14 +26,15 @@ interface IAnimalMedicines {
 }
 
 const Medicines: React.FC = () => {
-    const { animal } = useParams()
     const navigate = useNavigate()
 
     const [medicines, setMedicines] = useState<IMedicine[]>([])
 
+    const { animal } = useContext(AnimalContext);
+
     const getMedicines = async () => {
         try {
-            const response = await api.get(`/v1/medicines-animals/${'2c72aa64-adf2-4dae-bc94-3829031550d1'}` as any)
+            const response = await api.get(`/v1/medicines-animals/${animal?.id}` as any)
             const { data } = response
             if (data) {
                 const medicinesData = data.map((medicines: IAnimalMedicines) => { return medicines.medicine })
@@ -51,7 +53,7 @@ const Medicines: React.FC = () => {
         <ContainerCustom>
             <ContainerHeader>
                 <ArrowBackRounded style={{ transform: 'scale(1.5)', cursor: 'pointer' }} onClick={() => navigate('/')} />
-                <AnimalTitle>{animal}</AnimalTitle>
+                <AnimalTitle>{animal?.name}</AnimalTitle>
                 <div style={{ height: '25px', width: '25px' }} />
             </ContainerHeader>
             <ContainerSearch>
@@ -67,7 +69,7 @@ const Medicines: React.FC = () => {
             </ContainerTitleMedicines>
             <ContainerMedicines>
                 {medicines.map((medicine, index) => (
-                    <Medicine onClick={() => navigate(`/${animal}/${medicine.name}`)} key={index}><p>{medicine.name}</p></Medicine>
+                    <Medicine onClick={() => navigate(`/${animal?.name}/${medicine.name}`)} key={index}><p>{medicine.name}</p></Medicine>
                 ))}
             </ContainerMedicines>
         </ContainerCustom >

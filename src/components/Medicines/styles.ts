@@ -51,10 +51,15 @@ export const Medicine = styled.div`
     align-items: center;
     width: 100%;
     padding-left: 10px;
-    background-color: rgba(173, 250, 255, 0.5);
+    background-color: rgba(173, 250, 255, 0.7);
     font-weight: 400;
     border-radius: 3px;
     height: 3.8rem;
     margin: 10px 0px 5px 0px;
     cursor: pointer;
+    transition: ease 0.3s;
+
+    &:hover{
+        background-color: rgba(173, 250, 255, 0.95);
+    }
 `

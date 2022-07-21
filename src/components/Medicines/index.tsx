@@ -29,6 +29,8 @@ const Medicines: React.FC = () => {
     const navigate = useNavigate()
 
     const [medicines, setMedicines] = useState<IMedicine[]>([])
+    const [allMedicines, setAllMedicines] = useState<IMedicine[]>([])
+    const [search, setSearch] = useState('')
 
     const { animal } = useContext(AnimalContext);
     const { setMedicine } = useContext(MedicineContext)
@@ -40,6 +42,7 @@ const Medicines: React.FC = () => {
             if (data) {
                 const medicinesData = data.map((medicines: IAnimalMedicines) => { return medicines.medicine })
                 setMedicines(medicinesData)
+                setAllMedicines(medicinesData)
             }
         } catch (error) {
             console.log(error)
@@ -49,6 +52,16 @@ const Medicines: React.FC = () => {
     const setMedicineContextAndNavigateToMedicinesDetails = (medicine: IMedicine) => {
         setMedicine!(medicine)
         navigate(`/${animal?.name}/${medicine.name}`)
+    }
+
+    const filterMedicines = () => {
+        const medicinesFiltered = medicines.filter((medicine) => medicine.name.toLowerCase().includes(search.toLowerCase()))
+        setMedicines(medicinesFiltered)
+
+        if (search === "" || medicinesFiltered.length === 0) {
+            setMedicines(allMedicines)
+        }
+
     }
 
     useEffect(() => {
@@ -65,11 +78,16 @@ const Medicines: React.FC = () => {
                 <div style={{ height: '25px', width: '25px' }} />
             </ContainerHeader>
             <ContainerSearch>
-                <InputMedicine placeholder="Procurar por medicamento" fullWidth endAdornment={
-                    <InputAdornment position="end" >
-                        <Search height={60} width={60} />
-                    </InputAdornment>
-                } />
+                <InputMedicine placeholder="Procurar por medicamento" fullWidth
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    onClick={filterMedicines}
+                    onKeyUp={filterMedicines}
+                    endAdornment={
+                        <InputAdornment position="end" >
+                            <Search height={60} width={60} />
+                        </InputAdornment>
+                    } />
             </ContainerSearch>
             <ContainerTitleMedicines>
                 <h3>Medicamentos</h3>

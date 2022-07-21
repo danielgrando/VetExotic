@@ -19,3 +19,19 @@ export const ListItemTextDrawer = styled(ListItemText)`
 export const ListItemIconDrawer = styled(ListItemText)`
     color: ${props => props.theme.colors.text};
 `
+
+export const ListItemButton = styled.a`
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    transition: ease-in-out 0.3s;
+
+    &:hover{
+        background-color: rgba(133, 240, 255, 0.3);
+    }
+`
+
+

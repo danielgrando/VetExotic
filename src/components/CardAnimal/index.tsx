@@ -31,7 +31,7 @@ const CardAnimal: React.FC<Props> = ({ animalProps }) => {
                 <CardMedia
                     component="img"
                     image={'data:image/svg+xml;base64,' + animalProps.icon}
-                    alt="rat"
+                    alt={animalProps.name}
                 />
                 <Typography variant="body2">
                     {/* {card.id} */}

@@ -13,7 +13,7 @@ const Farmacology: React.FC = () => {
     const { medicine } = useContext(MedicineContext)
 
 
-    const pharmacology = medicine?.pharmacology.split('.')
+    const pharmacology = medicine?.pharmacology.split('/')
     return (
         <ContainerCustom>
             <ContainerHeader>

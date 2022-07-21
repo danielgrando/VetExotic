@@ -16,4 +16,21 @@ export const TextSection = styled('h2')`
     position: absolute;
     top: 15%;
     left: 5%;
+
+    @media(max-width: 600px) {
+        top: 6%;
+        left: 5%;
+    }
+    @media(max-width: 400) {
+        top: 10%;
+        left: 5%;
+    }
+    @media(max-width: 800px) {
+        top: 10%;
+        left: 5%;
+    }
+    @media(max-width: 1200px) {
+        top: 10%;
+        left: 5%;
+    }
 `

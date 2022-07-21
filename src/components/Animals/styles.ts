@@ -8,14 +8,9 @@ export const ContainerCustom = styled('div')`
     justify-content: center;
     max-width: 800px;
     max-height: 800px;
+    margin-top: 10rem;
 
-    @media(max-width: 600px) {
-        max-height: 650px;
-    }
-    @media(max-width: 380px) {
-        max-height: 470px;
-    }
-    @media(max-width: 800px) {
+    @media(max-width: 1200px) {
         max-height: 650px;
     }
 `

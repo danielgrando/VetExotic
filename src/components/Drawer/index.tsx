@@ -2,15 +2,14 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import InfoIcon from '@mui/icons-material/InfoRounded';
 import MailIcon from '@mui/icons-material/Mail';
 import Toolbar from '@mui/material/Toolbar';
 import { useState, useContext } from 'react';
 import { ThemeContext } from 'styled-components'
 import Header from '../Header';
-import { DrawerDesktop, DrawerMobile, ListItemTextDrawer } from './style';
+import { DrawerDesktop, DrawerMobile, ListItemTextDrawer, ListItemButton } from './style';
+import { ListItemIcon } from '@mui/material';
 
 const drawerWidth = 240;
 interface Props {
@@ -34,7 +33,7 @@ export default function ResponsiveDrawer(props: Props) {
             <List>
                 {['FeedBack', 'Sobre'].map((text, index) => (
                     <ListItem key={text} disablePadding>
-                        <ListItemButton>
+                        <ListItemButton href={text === "Sobre" ? "https://github.com/danielgrando" : "https://google.com"} target="_blank">
                             <ListItemIcon style={{ color: title === 'light' ? 'black' : 'white' }}>
                                 {index % 2 === 0 ? <MailIcon /> : <InfoIcon />}
                             </ListItemIcon>

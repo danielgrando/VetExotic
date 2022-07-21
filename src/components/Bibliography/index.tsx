@@ -12,6 +12,7 @@ const Bibliography: React.FC = () => {
     const { animal } = useContext(AnimalContext)
     const { medicine } = useContext(MedicineContext)
 
+    const bibliographicReferenceSplit = medicine?.bibliographic_references.split('/')
     return (
         <ContainerCustom>
             <ContainerHeader>
@@ -24,9 +25,11 @@ const Bibliography: React.FC = () => {
             </ContainerHeader>
             <SubTitle>{medicine?.name}</SubTitle>
             <ContainerText>
-                <BibliographyText>
-                    {medicine?.bibliographic_references}
-                </BibliographyText>
+                {bibliographicReferenceSplit?.map((bibliographic_reference, index) => (
+                    <BibliographyText key={index}>
+                        {bibliographic_reference}
+                    </BibliographyText>
+                ))}
             </ContainerText>
         </ContainerCustom >
 

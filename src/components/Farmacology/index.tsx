@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { ContainerText, FarmacologyText, FarmacologyTitle, ContainerCustom, ContainerHeader, SubTitle } from './styles'
 import FarmacologyIcon from '../../assets/farmacology.png'
 import { useContext } from 'react'
-import { AnimalContext, MedicineContext } from '../../App'
+import { MedicineContext } from '../../App'
+import { AnimalContext } from '../../utils/AnimalContext'
 
 const Farmacology: React.FC = () => {
     const navigate = useNavigate()

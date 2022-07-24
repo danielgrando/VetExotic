@@ -9,19 +9,8 @@ import { BrowserRouter } from 'react-router-dom'
 import { AppRoutes } from './routes';
 import { ThemeContextProvider } from './ThemeContext/themeContext';
 import ResponsiveDrawer from './components/Drawer';
-import { createContext, useState } from 'react';
-interface IAnimal {
-  id: string
-  name: string
-  icon: string
-  created_at: Date
-  updated_at: Date
-}
-
-type IPropsAnimalContext = {
-  animal?: IAnimal
-  setAnimal?: (newState: IAnimal) => void | null
-}
+import { createContext, useEffect, useState } from 'react';
+import { AnimalContextProvider } from './utils/AnimalContext';
 
 interface IMedicine {
   id: string
@@ -40,10 +29,6 @@ type IPropsMedicineContext = {
 }
 
 
-export const AnimalContext = createContext<IPropsAnimalContext>({
-  animal: { id: '', name: '', icon: '', created_at: new Date(), updated_at: new Date() }, setAnimal: () => { }
-});
-
 export const MedicineContext = createContext<IPropsMedicineContext>({
   medicine: {
     id: "",
@@ -60,10 +45,6 @@ export const MedicineContext = createContext<IPropsMedicineContext>({
 function App() {
   const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', light)
 
-  const initialValue = {
-    animal: { id: '', name: '', icon: '', created_at: new Date(), updated_at: new Date() },
-    setAnimal: () => { }
-  }
 
   const MedicineInitialValue = {
     medicine: {
@@ -79,12 +60,39 @@ function App() {
     setMedicine: () => { }
   }
 
-  const [animal, setAnimal] = useState(initialValue.animal)
+
   const [medicine, setMedicine] = useState(MedicineInitialValue.medicine)
 
   const toggleTheme = () => {
     setTheme(theme.title === 'light' ? dark : light)
   }
+
+  function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height
+    };
+  }
+
+  function useWindowDimensions() {
+    const [windowDimensions, setWindowDimensions] = useState(
+      getWindowDimensions()
+    );
+
+    useEffect(() => {
+      function handleResize() {
+        setWindowDimensions(getWindowDimensions());
+      }
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return windowDimensions
+  }
+
+  const { width } = useWindowDimensions();
 
   return (
     <BrowserRouter>
@@ -93,11 +101,12 @@ function App() {
           <GlobalStyle />
           <div style={{ display: 'flex' }}>
             <ResponsiveDrawer toggleTheme={toggleTheme} />
-            <AnimalContext.Provider value={{ animal, setAnimal }}>
+            <AnimalContextProvider>
               <MedicineContext.Provider value={{ medicine, setMedicine }}>
                 <AppRoutes />
               </MedicineContext.Provider>
-            </AnimalContext.Provider>
+            </AnimalContextProvider>
+            {width > 1200 && <div style={{ width: '240px' }}></div>}
           </div>
         </ThemeProvider>
       </ThemeContextProvider>

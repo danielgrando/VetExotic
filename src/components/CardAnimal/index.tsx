@@ -2,7 +2,7 @@ import { CardContent, CardMedia, Typography } from '@mui/material'
 import { CardAnimals } from './styles'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
-import { AnimalContext } from '../../App'
+import { AnimalContext } from '../../utils/AnimalContext'
 interface IAnimal {
     id: string
     name: string

@@ -1,10 +1,15 @@
-import { Search, ArrowBackRounded } from "@mui/icons-material";
+import { Search, ArrowBackRounded, ArrowForwardIosRounded } from "@mui/icons-material";
 import { InputAdornment } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/api";
-import { AnimalContext, MedicineContext } from "../../App";
-import { ContainerCustom, ContainerHeader, AnimalTitle, ContainerSearch, InputMedicine, ContainerTitleMedicines, ContainerMedicines, Medicine } from "./styles";
+import { MedicineContext } from "../../App";
+import { AnimalContext } from '../../utils/AnimalContext'
+import {
+    ContainerCustom, ContainerHeader, AnimalTitle, ContainerSearch,
+    InputMedicine, ContainerTitleMedicines, ContainerMedicines,
+    Medicine, TitleMedicine, MedicineName
+} from "./styles";
 
 interface IMedicine {
     id: string
@@ -92,12 +97,15 @@ const Medicines: React.FC = () => {
                     } />
             </ContainerSearch>
             <ContainerTitleMedicines>
-                <h3>Medicamentos</h3>
+                <TitleMedicine>Medicamentos</TitleMedicine>
                 <div />
             </ContainerTitleMedicines>
             <ContainerMedicines>
                 {medicines.map((medicine, index) => (
-                    <Medicine onClick={() => setMedicineContextAndNavigateToMedicinesDetails(medicine)} key={index}><p>{medicine.name}</p></Medicine>
+                    <Medicine onClick={() => setMedicineContextAndNavigateToMedicinesDetails(medicine)} key={index}>
+                        <MedicineName>{medicine.name}</MedicineName>
+                        <ArrowForwardIosRounded style={{ transform: 'scale(1.1)', cursor: 'pointer', color: 'white' }} />
+                    </Medicine>
                 ))}
             </ContainerMedicines>
         </ContainerCustom >

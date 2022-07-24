@@ -21,7 +21,13 @@ export const ContainerHeader = styled.div`
     height: 10%;
 `
 export const AnimalTitle = styled.h2`
-    font-size: 1.3em;
+    font-size: 1.7em;
+`
+export const TitleMedicine = styled.h3`
+    font-size: 1.4em;
+`
+export const MedicineName = styled.p`
+    font-size: 1.05em;
 `
 
 export const ContainerSearch = styled.div`
@@ -49,10 +55,12 @@ export const ContainerMedicines = styled.div`
 export const Medicine = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
-    padding-left: 10px;
+    padding: 10px;
     background-color: rgba(173, 250, 255, 0.7);
     font-weight: 400;
+    border: 1px solid rgba(173, 250, 255, 0.7);
     border-radius: 3px;
     height: 3.8rem;
     margin: 10px 0px 5px 0px;

@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { BibliographyText, BibliographyTitle, ContainerCustom, ContainerHeader, ContainerText, SubTitle } from './styles'
 import BibliographyIcon from '../../assets/bibliography.png'
 import { useContext } from 'react'
-import { AnimalContext, MedicineContext } from '../../App'
+import { MedicineContext } from '../../App'
+import { AnimalContext } from '../../utils/AnimalContext'
 
 const Bibliography: React.FC = () => {
     const navigate = useNavigate()

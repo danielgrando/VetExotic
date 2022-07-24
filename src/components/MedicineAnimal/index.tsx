@@ -9,7 +9,8 @@ import {
     ContainerButtons, ContainerMedicineDetails, MedicineTitle, TextButton,
     MedicineIcon, SubTitle, ClassificationTitle, ClassificationText, DescriptionTitle, DescriptionText
 } from "./styles";
-import { AnimalContext, MedicineContext } from "../../App";
+import { MedicineContext } from "../../App";
+import { AnimalContext } from '../../utils/AnimalContext'
 import { useContext } from "react";
 
 const MedicineAnimal: React.FC = () => {

@@ -5,7 +5,8 @@ import {
     ContainerDosageDetails, MedicineTitle,
     MedicineIcon, SubTitle, DosageText, Text, Title, ContainerItemDetail, ContainerDosage
 } from "./styles";
-import { AnimalContext, MedicineContext } from "../../App";
+import { MedicineContext } from "../../App";
+import { AnimalContext } from '../../utils/AnimalContext'
 import api from "../../api/api";
 import { useContext, useEffect, useState } from "react";
 

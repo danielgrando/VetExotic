@@ -35,9 +35,11 @@ const Dosages: React.FC = () => {
             const { data } = response
             if (data) {
                 setDosage(data)
+                localStorage.setItem("dosages", JSON.stringify(data))
             }
         } catch (error) {
-            console.log(error)
+            const dosagesCached: any = localStorage.getItem("dosages")
+            setDosage(JSON.parse(dosagesCached))
         }
     }
 

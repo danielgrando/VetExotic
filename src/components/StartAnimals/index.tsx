@@ -3,9 +3,17 @@ import api from "../../api/api"
 import Animals from "../Animals"
 import { BoxMain, TextSection } from "./styles"
 
+interface IAnimals {
+    id: string
+    name: string
+    icon: string
+    created_at: Date
+    updated_at: Date
+}
+
 const StartAnimals: React.FC = () => {
 
-    const [animals, setAnimals] = useState([])
+    const [animals, setAnimals] = useState<IAnimals[]>([])
 
     const getAnimals = async () => {
         try {
@@ -13,9 +21,11 @@ const StartAnimals: React.FC = () => {
             const { data } = response
             if (data) {
                 setAnimals(data)
+                localStorage.setItem("animals", JSON.stringify(data))
             }
         } catch (error) {
-            console.log(error)
+            const animalsCached: any = localStorage.getItem("animals")
+            setAnimals(JSON.parse(animalsCached))
         }
     }
 

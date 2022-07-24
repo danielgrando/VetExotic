@@ -43,9 +43,11 @@ const Medicines: React.FC = () => {
                 const medicinesData = data.map((medicines: IAnimalMedicines) => { return medicines.medicine })
                 setMedicines(medicinesData)
                 setAllMedicines(medicinesData)
+                localStorage.setItem("medicines", JSON.stringify(data))
             }
         } catch (error) {
-            console.log(error)
+            const medicinesCached: any = localStorage.getItem("medicines")
+            setMedicines(JSON.parse(medicinesCached))
         }
     }
 

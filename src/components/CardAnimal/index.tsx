@@ -21,6 +21,7 @@ const CardAnimal: React.FC<Props> = ({ animalProps }) => {
     const { setAnimal } = useContext(AnimalContext);
 
     const setAnimalContextAndNavigateToMedicines = () => {
+        localStorage.setItem('animal', JSON.stringify(animalProps))
         setAnimal!(animalProps)
         navigate(`/medicines/${animalProps.name}`)
     }

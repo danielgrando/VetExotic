@@ -13,7 +13,7 @@ type IPropsAnimalContext = {
     setAnimal?: (newState: IAnimal) => void | null
 }
 
-type AnimaContextProp = {
+type AnimalContextProp = {
     children: ReactNode;
 }
 
@@ -24,8 +24,9 @@ const animalInitialValue = {
 
 export const AnimalContext = createContext<IPropsAnimalContext>(animalInitialValue);
 
-export const AnimalContextProvider = ({ children }: AnimaContextProp) => {
-    const [animal, setAnimal] = useState(animalInitialValue.animal)
+export const AnimalContextProvider = ({ children }: AnimalContextProp) => {
+    const initialValue = JSON.parse(localStorage.getItem('animal') as any)
+    const [animal, setAnimal] = useState(initialValue)
 
     return (
         <AnimalContext.Provider value={{ animal, setAnimal }}>{children}</AnimalContext.Provider>

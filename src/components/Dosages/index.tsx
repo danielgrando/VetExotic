@@ -6,8 +6,8 @@ import {
     MedicineIcon, SubTitle, DosageText, Text, Title, ContainerItemDetail, ContainerDosage,
     TextNameDosage
 } from "./styles";
-import { MedicineContext } from "../../App";
 import { AnimalContext } from '../../utils/animalGeneralContext'
+import { MedicineContext } from '../../utils/MedicineContext'
 import api from "../../api/api";
 import { useContext, useEffect, useState } from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -40,7 +40,7 @@ const Dosages: React.FC = () => {
             const { data } = response
             if (data) {
                 setDosage(data)
-                localStorage.setItem("dosages", JSON.stringify(data))
+                localStorage.setItem("dosage", JSON.stringify(data))
             }
         } catch (error) {
             const dosagesCached: any = localStorage.getItem("dosages")

@@ -3,7 +3,7 @@ import { InputAdornment } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/api";
-import { MedicineContext } from "../../App";
+import { MedicineContext } from '../../utils/MedicineContext'
 import { AnimalContext } from '../../utils/animalGeneralContext'
 import {
     ContainerCustom, ContainerHeader, AnimalTitle, ContainerSearch,
@@ -38,6 +38,7 @@ const Medicines: React.FC = () => {
     const [search, setSearch] = useState('')
 
     const { animal } = useContext(AnimalContext);
+
     const { setMedicine } = useContext(MedicineContext)
 
     const getMedicines = async () => {
@@ -57,6 +58,7 @@ const Medicines: React.FC = () => {
     }
 
     const setMedicineContextAndNavigateToMedicinesDetails = (medicine: IMedicine) => {
+        localStorage.setItem("medicine", JSON.stringify(medicine))
         setMedicine!(medicine)
         navigate(`/${animal?.name}/${medicine.name}`)
     }

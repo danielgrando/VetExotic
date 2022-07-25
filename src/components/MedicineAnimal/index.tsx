@@ -9,7 +9,7 @@ import {
     ContainerButtons, ContainerMedicineDetails, MedicineTitle, TextButton,
     MedicineIcon, SubTitle, ClassificationTitle, ClassificationText, DescriptionTitle, DescriptionText
 } from "./styles";
-import { MedicineContext } from "../../App";
+import { MedicineContext } from '../../utils/MedicineContext'
 import { AnimalContext } from '../../utils/animalGeneralContext'
 import { useContext } from "react";
 

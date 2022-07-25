@@ -18,17 +18,18 @@ export const ContainerHeader = styled.div`
     height: 10%;
 `
 export const BibliographyTitle = styled.h2`
-    font-size: 1.3em;
+    font-size: 1.7em;
     position: relative;
 `
-export const SubTitle = styled.span`
-    margin-top: -2em; 
+export const SubTitle = styled.p`
+    font-size: 1.2em;
+    margin-top: -1.5em;  
 `
 
 export const ContainerText = styled.div`
     max-width: 85%;
     min-height: 65%;
-    margin-top: 3rem;
+    margin-top: 2rem;
 `
 
 export const BibliographyText = styled.p`

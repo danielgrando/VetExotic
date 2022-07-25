@@ -9,59 +9,12 @@ import { BrowserRouter } from 'react-router-dom'
 import { AppRoutes } from './routes';
 import { ThemeContextProvider } from './ThemeContext/themeContext';
 import ResponsiveDrawer from './components/Drawer';
-import { createContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimalContextProvider } from './utils/animalGeneralContext';
-
-interface IMedicine {
-  id: string
-  name: string
-  pharmacology: string
-  bibliographic_references: string
-  classification: string
-  description: string
-  created_at: Date
-  updated_at: Date
-}
-
-type IPropsMedicineContext = {
-  medicine?: IMedicine
-  setMedicine?: (newState: IMedicine) => void | null
-}
-
-
-export const MedicineContext = createContext<IPropsMedicineContext>({
-  medicine: {
-    id: "",
-    bibliographic_references: "",
-    classification: "",
-    description: "",
-    name: "",
-    pharmacology: "",
-    created_at: new Date(),
-    updated_at: new Date()
-  }, setMedicine: () => { }
-});
+import { MedicineContextProvider } from './utils/MedicineContext'
 
 function App() {
   const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', light)
-
-
-  const MedicineInitialValue = {
-    medicine: {
-      id: "",
-      bibliographic_references: "",
-      classification: "",
-      description: "",
-      name: "",
-      pharmacology: "",
-      created_at: new Date(),
-      updated_at: new Date()
-    },
-    setMedicine: () => { }
-  }
-
-
-  const [medicine, setMedicine] = useState(MedicineInitialValue.medicine)
 
   const toggleTheme = () => {
     setTheme(theme.title === 'light' ? dark : light)
@@ -102,9 +55,9 @@ function App() {
           <div style={{ display: 'flex' }}>
             <ResponsiveDrawer toggleTheme={toggleTheme} />
             <AnimalContextProvider>
-              <MedicineContext.Provider value={{ medicine, setMedicine }}>
+              <MedicineContextProvider>
                 <AppRoutes />
-              </MedicineContext.Provider>
+              </MedicineContextProvider>
             </AnimalContextProvider>
             {width > 1200 && <div style={{ width: '240px' }}></div>}
           </div>

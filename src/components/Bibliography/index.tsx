@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { BibliographyText, BibliographyTitle, ContainerCustom, ContainerHeader, ContainerText, SubTitle } from './styles'
 import BibliographyIcon from '../../assets/bibliography.png'
 import { useContext } from 'react'
-import { MedicineContext } from '../../App'
+import { MedicineContext } from '../../utils/MedicineContext'
 import { AnimalContext } from '../../utils/animalGeneralContext'
 
 const Bibliography: React.FC = () => {
@@ -20,7 +20,7 @@ const Bibliography: React.FC = () => {
                 <ArrowBackRounded style={{ transform: 'scale(1.5)', cursor: 'pointer' }} onClick={() => navigate(`/${animal?.name}/${medicine?.name}`)} />
                 <BibliographyTitle>
                     <img src={BibliographyIcon} width={22} height={22} style={{ position: 'absolute', left: '-22px' }} alt="Bibliography" />
-                    Referências Bibliográficas
+                    Referências Biblio.
                 </BibliographyTitle>
                 <div style={{ height: '25px', width: '25px' }} />
             </ContainerHeader>

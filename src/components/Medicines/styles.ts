@@ -1,9 +1,8 @@
-import { Box, Input } from "@mui/material";
+import { Input } from "@mui/material";
 import styled from "styled-components";
 
-export const ContainerCustom = styled(Box)`
+export const ContainerCustom = styled.div`
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     width: 100vw;
@@ -27,7 +26,7 @@ export const TitleMedicine = styled.h3`
     font-size: 1.4em;
 `
 export const MedicineName = styled.p`
-    font-size: 1.05em;
+    font-size: 1.1em;
 `
 
 export const ContainerSearch = styled.div`

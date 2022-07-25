@@ -3,14 +3,18 @@ import { ContainerCustom, ContainerHeader } from "../Medicines/styles"
 import { ArrowBackRounded } from "@mui/icons-material";
 import {
     ContainerDosageDetails, MedicineTitle,
-    MedicineIcon, SubTitle, DosageText, Text, Title, ContainerItemDetail, ContainerDosage
+    MedicineIcon, SubTitle, DosageText, Text, Title, ContainerItemDetail, ContainerDosage,
+    TextNameDosage
 } from "./styles";
 import { MedicineContext } from "../../App";
-import { AnimalContext } from '../../utils/AnimalContext'
+import { AnimalContext } from '../../utils/animalContext'
 import api from "../../api/api";
 import { useContext, useEffect, useState } from "react";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 
 interface IDosage {
+    id: string
     animalId: string
     application_routes: string
     dosage: string
@@ -44,6 +48,7 @@ const Dosages: React.FC = () => {
         }
     }
 
+
     useEffect(() => {
         getDosage()
 
@@ -63,24 +68,35 @@ const Dosages: React.FC = () => {
             <SubTitle>{animal?.name}</SubTitle>
             <ContainerDosage>
                 {dosage?.map(dosage => (
-                    <ContainerDosageDetails>
-                        <ContainerItemDetail>
-                            <Title>Vias de aplicação</Title>
-                            <Text>{dosage.application_routes}</Text>
-                        </ContainerItemDetail>
-                        <ContainerItemDetail>
-                            <Title>Frequência</Title>
-                            <Text>{dosage.frequency}</Text>
-                        </ContainerItemDetail>
-                        <ContainerItemDetail>
-                            <Title>Dose</Title>
-                            <DosageText>{dosage.dosage}</DosageText>
-                        </ContainerItemDetail>
-                        <ContainerItemDetail>
-                            <Title>Observações</Title>
-                            <Text>{dosage.observations}</Text>
-                        </ContainerItemDetail>
-                    </ContainerDosageDetails>
+                    <Accordion key={dosage.id} defaultExpanded={dosage.name === 'Dose Geral' ? true : false} style={{ width: '100%' }}>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                        >
+                            <TextNameDosage>{dosage.name}</TextNameDosage>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <ContainerDosageDetails>
+                                <ContainerItemDetail>
+                                    <Title>Vias de aplicação</Title>
+                                    <Text>{dosage.application_routes}</Text>
+                                </ContainerItemDetail>
+                                <ContainerItemDetail>
+                                    <Title>Frequência</Title>
+                                    <Text>{dosage.frequency}</Text>
+                                </ContainerItemDetail>
+                                <ContainerItemDetail>
+                                    <Title>Dose</Title>
+                                    <DosageText>{dosage.dosage}</DosageText>
+                                </ContainerItemDetail>
+                                <ContainerItemDetail>
+                                    <Title>Observações</Title>
+                                    <Text>{dosage.observations}</Text>
+                                </ContainerItemDetail>
+                            </ContainerDosageDetails>
+                        </AccordionDetails>
+                    </Accordion>
                 ))}
             </ContainerDosage>
         </ContainerCustom >

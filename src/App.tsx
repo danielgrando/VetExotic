@@ -10,7 +10,7 @@ import { AppRoutes } from './routes';
 import { ThemeContextProvider } from './ThemeContext/themeContext';
 import ResponsiveDrawer from './components/Drawer';
 import { createContext, useEffect, useState } from 'react';
-import { AnimalContextProvider } from './utils/AnimalContext';
+import { AnimalContextProvider } from './utils/animalContext';
 
 interface IMedicine {
   id: string

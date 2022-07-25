@@ -1,9 +1,8 @@
 import styled from 'styled-components'
-import { Box } from '@mui/material'
 
-export const ContainerCustom = styled(Box)`
+
+export const ContainerCustom = styled.div`
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     width: 100vw;

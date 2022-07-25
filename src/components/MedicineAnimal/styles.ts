@@ -72,8 +72,9 @@ export const ButtonDosage = styled.button`
     height: 3rem;
     border: transparent;
     cursor: pointer;
-    background: linear-gradient(90.55deg, #85F0FF 0.43%, rgba(133, 240, 255, 0.3) 93.33%);
-    border-radius: 12px;
+    background: rgb(133,240,255);
+    background: linear-gradient(90deg, rgba(133,240,255,0.5) 0%, rgba(133,240,255,0.5) 0%, rgba(0,212,255,0.5) 0%);
+    border-radius: 10px;
     margin: 0 auto;
 `
 export const TextButton = styled.span`

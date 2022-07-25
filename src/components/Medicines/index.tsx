@@ -1,4 +1,4 @@
-import { Search, ArrowBackRounded, ArrowForwardIosRounded } from "@mui/icons-material";
+import { ArrowBackRounded, ArrowForwardIosRounded } from "@mui/icons-material";
 import { CircularProgress, InputAdornment } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,9 +8,8 @@ import { AnimalContext } from '../../utils/animalGeneralContext'
 import {
     ContainerCustom, ContainerHeader, AnimalTitle, ContainerSearch,
     InputMedicine, ContainerTitleMedicines, ContainerMedicines,
-    Medicine, TitleMedicine, MedicineName
+    Medicine, TitleMedicine, MedicineName, SearchIcon
 } from "./styles";
-
 interface IMedicine {
     id: string
     name: string
@@ -89,14 +88,16 @@ const Medicines: React.FC = () => {
                 <div style={{ height: '25px', width: '25px' }} />
             </ContainerHeader>
             <ContainerSearch>
-                <InputMedicine placeholder="Procurar por medicamento" fullWidth
+                <InputMedicine
+                    // sx={{ input: { color: 'white' } }}
+                    placeholder="Procurar por medicamento" fullWidth
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     onClick={filterMedicines}
                     onKeyUp={filterMedicines}
                     endAdornment={
                         <InputAdornment position="end" >
-                            <Search height={60} width={60} />
+                            <SearchIcon height={60} width={60} />
                         </InputAdornment>
                     } />
             </ContainerSearch>
@@ -105,7 +106,7 @@ const Medicines: React.FC = () => {
                 <div />
             </ContainerTitleMedicines>
             <ContainerMedicines>
-                {loading ? <CircularProgress color="success" value={loading} /> :
+                {loading ? <CircularProgress color="success" value={100} /> :
                     medicines.map((medicine, index) => (
                         <Medicine onClick={() => setMedicineContextAndNavigateToMedicinesDetails(medicine)} key={index}>
                             <MedicineName>{medicine.name}</MedicineName>

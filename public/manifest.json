@@ -4,7 +4,7 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "VetExotic",
+  "name": "vetexotic.netlify.app",
   "short_name": "VetExotic",
   "description": "VetExotic",
   "icons": [

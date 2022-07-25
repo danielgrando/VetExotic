@@ -5,7 +5,7 @@ import { BibliographyText, BibliographyTitle, ContainerCustom, ContainerHeader, 
 import BibliographyIcon from '../../assets/bibliography.png'
 import { useContext } from 'react'
 import { MedicineContext } from '../../App'
-import { AnimalContext } from '../../utils/animalContext'
+import { AnimalContext } from '../../utils/AnimalContext'
 
 const Bibliography: React.FC = () => {
     const navigate = useNavigate()

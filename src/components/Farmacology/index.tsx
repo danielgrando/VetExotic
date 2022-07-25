@@ -5,7 +5,7 @@ import { ContainerText, FarmacologyText, FarmacologyTitle, ContainerCustom, Cont
 import FarmacologyIcon from '../../assets/farmacology.png'
 import { useContext } from 'react'
 import { MedicineContext } from '../../App'
-import { AnimalContext } from '../../utils/animalContext'
+import { AnimalContext } from '../../utils/AnimalContext'
 
 const Farmacology: React.FC = () => {
     const navigate = useNavigate()

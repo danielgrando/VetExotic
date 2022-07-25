@@ -7,7 +7,7 @@ import {
     TextNameDosage
 } from "./styles";
 import { MedicineContext } from "../../App";
-import { AnimalContext } from '../../utils/animalContext'
+import { AnimalContext } from '../../utils/animalGeneralContext'
 import api from "../../api/api";
 import { useContext, useEffect, useState } from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';

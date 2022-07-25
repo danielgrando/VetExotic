@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/api";
 import { MedicineContext } from "../../App";
-import { AnimalContext } from '../../utils/AnimalContext'
+import { AnimalContext } from '../../utils/animalGeneralContext'
 import {
     ContainerCustom, ContainerHeader, AnimalTitle, ContainerSearch,
     InputMedicine, ContainerTitleMedicines, ContainerMedicines,

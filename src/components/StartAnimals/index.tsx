@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material"
 import { useEffect, useState } from "react"
 import api from "../../api/api"
 import Animals from "../Animals"
@@ -14,6 +15,7 @@ interface IAnimals {
 const StartAnimals: React.FC = () => {
 
     const [animals, setAnimals] = useState<IAnimals[]>([])
+    const [loading, setLoading] = useState(100)
 
     const getAnimals = async () => {
         try {
@@ -22,6 +24,7 @@ const StartAnimals: React.FC = () => {
             if (data) {
                 setAnimals(data)
                 localStorage.setItem("animals", JSON.stringify(data))
+                setLoading(0)
             }
         } catch (error) {
             const animalsCached: any = localStorage.getItem("animals")
@@ -35,8 +38,13 @@ const StartAnimals: React.FC = () => {
 
     return (
         <BoxMain>
-            <TextSection >Selecione um dos grupos de animais abaixo para iniciar a consulta:</TextSection>
-            <Animals animals={animals} />
+            {loading ?
+                <CircularProgress color="success" value={loading} /> :
+                <>
+                    <TextSection>Selecione um dos grupos de animais abaixo para iniciar a consulta:</TextSection>
+                    <Animals animals={animals} />
+                </>
+            }
         </BoxMain>
     )
 }

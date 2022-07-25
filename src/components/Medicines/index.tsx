@@ -1,5 +1,5 @@
 import { Search, ArrowBackRounded, ArrowForwardIosRounded } from "@mui/icons-material";
-import { InputAdornment } from "@mui/material";
+import { CircularProgress, InputAdornment } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/api";
@@ -36,6 +36,7 @@ const Medicines: React.FC = () => {
     const [medicines, setMedicines] = useState<IMedicine[]>([])
     const [allMedicines, setAllMedicines] = useState<IMedicine[]>([])
     const [search, setSearch] = useState('')
+    const [loading, setLoading] = useState(100)
 
     const { animal } = useContext(AnimalContext);
 
@@ -50,6 +51,7 @@ const Medicines: React.FC = () => {
                 setMedicines(medicinesData)
                 setAllMedicines(medicinesData)
                 localStorage.setItem("medicines", JSON.stringify(data))
+                setLoading(0)
             }
         } catch (error) {
             const medicinesCached: any = localStorage.getItem("medicines")
@@ -103,12 +105,14 @@ const Medicines: React.FC = () => {
                 <div />
             </ContainerTitleMedicines>
             <ContainerMedicines>
-                {medicines.map((medicine, index) => (
-                    <Medicine onClick={() => setMedicineContextAndNavigateToMedicinesDetails(medicine)} key={index}>
-                        <MedicineName>{medicine.name}</MedicineName>
-                        <ArrowForwardIosRounded style={{ transform: 'scale(1.1)', cursor: 'pointer', color: 'white' }} />
-                    </Medicine>
-                ))}
+                {loading ? <CircularProgress color="success" value={loading} /> :
+                    medicines.map((medicine, index) => (
+                        <Medicine onClick={() => setMedicineContextAndNavigateToMedicinesDetails(medicine)} key={index}>
+                            <MedicineName>{medicine.name}</MedicineName>
+                            <ArrowForwardIosRounded style={{ transform: 'scale(1.1)', cursor: 'pointer', color: 'white' }} />
+                        </Medicine>
+                    ))
+                }
             </ContainerMedicines>
         </ContainerCustom >
     )

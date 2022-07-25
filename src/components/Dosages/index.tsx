@@ -4,15 +4,15 @@ import { ArrowBackRounded } from "@mui/icons-material";
 import {
     ContainerDosageDetails, MedicineTitle,
     MedicineIcon, SubTitle, DosageText, Text, Title, ContainerItemDetail, ContainerDosage,
-    TextNameDosage
+    TextNameDosage,
+    AccordionCustom
 } from "./styles";
 import { AnimalContext } from '../../utils/animalGeneralContext'
 import { MedicineContext } from '../../utils/MedicineContext'
 import api from "../../api/api";
 import { useContext, useEffect, useState } from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
-
+import { AccordionDetails, AccordionSummary } from "@mui/material";
 interface IDosage {
     id: string
     animalId: string
@@ -48,7 +48,6 @@ const Dosages: React.FC = () => {
         }
     }
 
-
     useEffect(() => {
         getDosage()
 
@@ -68,7 +67,9 @@ const Dosages: React.FC = () => {
             <SubTitle>{animal?.name}</SubTitle>
             <ContainerDosage>
                 {dosage?.map(dosage => (
-                    <Accordion key={dosage.id} defaultExpanded={dosage.name === 'Dose Geral' ? true : false} style={{ width: '100%' }}>
+                    <AccordionCustom key={dosage.id} defaultExpanded={dosage.name === 'Dose Geral' ? true : false}
+                    // style={{  }}
+                    >
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1a-content"
@@ -96,7 +97,7 @@ const Dosages: React.FC = () => {
                                 </ContainerItemDetail>
                             </ContainerDosageDetails>
                         </AccordionDetails>
-                    </Accordion>
+                    </AccordionCustom>
                 ))}
             </ContainerDosage>
         </ContainerCustom >

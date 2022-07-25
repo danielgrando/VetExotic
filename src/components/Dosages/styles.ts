@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { ReactComponent as Medicine } from '../../assets/medicine.svg'
+import { Accordion } from "@mui/material";
 
 export const ContainerCustom = styled.div`
     display: flex;
@@ -45,6 +46,7 @@ export const ContainerDosage = styled.div`
     width: 85%;
 `
 export const TextNameDosage = styled.h3`
+    color: ${props => props.theme.colors.text} !important;
     font-size: 1.3em;
 `
 
@@ -56,6 +58,11 @@ export const SubTitle = styled.p`
 export const Title = styled.h3`
     color: ${props => props.theme.colors.text} !important;
 `
+export const AccordionCustom = styled(Accordion)`
+    width: 100%;
+    background: ${props => props.theme.colors.background};
+`
+
 
 export const Text = styled.p`
     font-size: 1em;

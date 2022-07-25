@@ -67,7 +67,7 @@ export const Medicine = styled.div`
     height: 3.8rem;
     margin: 10px 0px 5px 0px;
     cursor: pointer;
-    transition: ease-in-out 0.3s;
+    transition: ease-in-out 0.2s;
 
     &:hover{
         background-color: ${props => props.theme.colors.backgroundMedicinesHover}

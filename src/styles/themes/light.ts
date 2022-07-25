@@ -11,6 +11,8 @@ export default {
         backgroundMedicines: 'rgba(173, 250, 255, 0.7)',
         backgroundMedicinesHover: 'rgba(173, 250, 255, 0.95)',
 
+        backgroundButton: 'rgba(243, 243, 243, 0.5)',
+        backgroundDosages: '#fff',
         background: 'white',
         textTitle: '#30FF2C',
         text: '#000000'

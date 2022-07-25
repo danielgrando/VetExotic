@@ -72,12 +72,13 @@ export const ButtonDosage = styled.button`
     height: 3rem;
     border: transparent;
     cursor: pointer;
-    background: rgb(133,240,255);
+    box-shadow: 0px 10px 40px -4px rgba(0,0,0,0.1);
     background: linear-gradient(90deg, rgba(133,240,255,0.5) 0%, rgba(133,240,255,0.5) 0%, rgba(0,212,255,0.5) 0%);
     border-radius: 10px;
     margin: 0 auto;
 `
 export const TextButton = styled.span`
+    color: ${props => props.theme.colors.text};
     font-size: 1.2em;
 `
 
@@ -88,15 +89,15 @@ export const ButtonFarmacology = styled.button`
     align-items: center;
     width: 20rem;
     height: 3rem;
-    border: 1px solid rgba(243, 243, 243, 0.3);
+    border: 1px solid ${props => props.theme.colors.backgroundButton};
     cursor: pointer;
     border-radius: 5px;
-    background: rgba(243, 243, 243, 0.5);
+    background-color: ${props => props.theme.colors.backgroundButton};
     margin: 3rem auto 0.5rem auto;
     transition: ease-in-out 0.3s;
 
     &:hover{
-        background: rgba(243, 243, 243, 1);
+        background-color: ${props => props.theme.colors.backgroundMedicinesHover}
     }
 `
 export const ButtonBibliography = styled.button`
@@ -106,15 +107,15 @@ export const ButtonBibliography = styled.button`
     align-items: center;
     width: 20rem;
     height: 3rem;
-    border: 1px solid rgba(243, 243, 243, 0.3);
+    border: 1px solid ${props => props.theme.colors.backgroundButton};
     cursor: pointer;
     border-radius: 5px;
     margin: 0 auto;
-    background: rgba(243, 243, 243, 0.5);
+    background-color: ${props => props.theme.colors.backgroundButton};
     transition: ease-in-out 0.3s;
 
     &:hover{
-        background: rgba(243, 243, 243, 1);
+        background-color: ${props => props.theme.colors.backgroundMedicinesHover}
     }
 `
 

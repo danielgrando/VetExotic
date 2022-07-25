@@ -11,6 +11,8 @@ declare module 'styled-components' {
             backgroundMedicines: string
             backgroundMedicinesHover: string
 
+            backgroundButton: string
+            backgroundDosages: string
             background: string
             textTitle: string
             text: string

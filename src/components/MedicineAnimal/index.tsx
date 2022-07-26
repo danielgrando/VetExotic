@@ -27,7 +27,7 @@ const AntTab = styled(Tab)({
     fontFamily: [
         'Comfortaa',
     ],
-    fontSize: '1.2em',
+    fontSize: '1.1em',
     fontWeight: 'bold',
     textTransform: 'none',
 });
@@ -68,7 +68,7 @@ const MedicineAnimal: React.FC = () => {
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
-
+    console.log(medicine)
     return (
         <ContainerCustom>
             <ContainerHeader>
@@ -81,56 +81,53 @@ const MedicineAnimal: React.FC = () => {
             </ContainerHeader>
             <SubTitle>{animal?.name}</SubTitle>
             <ContainerMedicineDetails>
-                <Box sx={{ width: "100%" }}>
-                    <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                        <AntTabs
-                            centered={true}
-                            textColor="inherit"
-                            value={value}
-                            onChange={handleChange}
-                            aria-label="basic tabs example"
-                        >
-                            <AntTab label="Descrição" />
-                            <AntTab label="Dose" />
-                            <AntTab label="Farmacologia" />
-                        </AntTabs>
-                    </Box>
-                    <TabPanel value={value} index={0}>
-                        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '50vh' }}>
-                            <ClassificationDescriptionContainer>
-                                <ClassificationTitle>
-                                    Classificação
-                                </ClassificationTitle>
-                                <ClassificationText>
-                                    {medicine?.classification}
-                                </ClassificationText>
-                                <DescriptionTitle>
-                                    Descrição
-                                </DescriptionTitle>
-                                <DescriptionText>
-                                    {medicine?.description}
-                                </DescriptionText>
-                            </ClassificationDescriptionContainer>
-                            <ContainerButtons>
-                                {/* <ButtonFarmacology onClick={() => navigate(`/${animal?.name}/${medicine?.name}/farmacology`)}>
+                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                    <AntTabs
+                        centered={true}
+                        textColor="inherit"
+                        value={value}
+                        onChange={handleChange}
+                        aria-label="basic tabs example"
+                    >
+                        <AntTab label="Descrição" />
+                        <AntTab label="Dose" />
+                        <AntTab label="Farmacologia" />
+                    </AntTabs>
+                </Box>
+                <TabPanel value={value} index={0}>
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '50vh' }}>
+                        <ClassificationDescriptionContainer>
+                            <ClassificationTitle>
+                                Classificação
+                            </ClassificationTitle>
+                            <ClassificationText>
+                                {medicine?.classification}
+                            </ClassificationText>
+                            <DescriptionTitle>
+                                Descrição
+                            </DescriptionTitle>
+                            <DescriptionText>
+                                {medicine?.description}
+                            </DescriptionText>
+                        </ClassificationDescriptionContainer>
+                        <ContainerButtons>
+                            {/* <ButtonFarmacology onClick={() => navigate(`/${animal?.name}/${medicine?.name}/farmacology`)}>
                                 <img src={Farmacology} width={22} height={22} style={{ position: "absolute", left: 70 }} alt="Farmacology" />&nbsp;
                                 <TextButton>Farmacologia</TextButton>
                             </ButtonFarmacology> */}
-                                <ButtonBibliography onClick={() => navigate(`/${animal?.name}/${medicine?.name}/bibliography`)}>
-                                    <img src={Bibliography} width={22} height={22} style={{ position: "absolute", left: 25 }} alt="Bibliography" />&nbsp;
-                                    <TextButton>Referências Bibliográficas</TextButton>
-                                </ButtonBibliography>
-                            </ContainerButtons>
-                        </div>
-                    </TabPanel>
-                    <TabPanel value={value} index={1}>
-                        <Dosages />
-                    </TabPanel>
-                    <TabPanel value={value} index={2}>
-                        <Farmacology />
-                    </TabPanel>
-                </Box>
-
+                            <ButtonBibliography onClick={() => navigate(`/${animal?.name}/${medicine?.name}/bibliography`)}>
+                                <img src={Bibliography} width={22} height={22} style={{ position: "absolute", left: 25 }} alt="Bibliography" />&nbsp;
+                                <TextButton>Referências Bibliográficas</TextButton>
+                            </ButtonBibliography>
+                        </ContainerButtons>
+                    </div>
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                    <Dosages />
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                    <Farmacology />
+                </TabPanel>
             </ContainerMedicineDetails>
         </ContainerCustom >
     )

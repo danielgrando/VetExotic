@@ -60,7 +60,10 @@ const Dosages: React.FC = () => {
                 <CircularProgress color="success" value={loading} />
                 :
                 dosage?.map(dosage => (
-                    <AccordionCustom key={dosage.id} defaultExpanded={dosage.name === 'Dose Geral' ? true : false}
+                    <AccordionCustom
+                        TransitionProps={{ unmountOnExit: true }}
+                        key={dosage.id}
+                        defaultExpanded={dosage.name === 'Dose Geral' ? true : false}
                     // style={{  }}
                     >
                         <AccordionSummary

@@ -33,18 +33,17 @@ export const MedicineIcon = styled(Medicine)`
 `
 
 export const ContainerMedicineDetails = styled.div`
-    min-width: 85%;
-    min-height: 65%;
+    width: 85%;
+    height: 65%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     margin-top: 3rem;
 `
 export const ClassificationDescriptionContainer = styled.div`
     height: 30%;
 `
 export const ClassificationTitle = styled.h3`
-    font-size: 1.4em;
+    font-size: 1.3em;
     color: ${props => props.theme.colors.text} !important;
 `
 export const ClassificationText = styled.p`
@@ -53,7 +52,7 @@ export const ClassificationText = styled.p`
     color: ${props => props.theme.colors.text} !important;
 `
 export const DescriptionTitle = styled.h3`
-    font-size: 1.4em;
+    font-size: 1.3em;
     margin-top: 2rem;
     color: ${props => props.theme.colors.text} !important;
 `

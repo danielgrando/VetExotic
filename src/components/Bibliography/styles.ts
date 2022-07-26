@@ -33,7 +33,7 @@ export const ContainerText = styled.div`
 `
 
 export const BibliographyText = styled.p`
-    font-size: 1em;
+    font-size: 1.1em;
     padding: 0.3rem;
 `
 

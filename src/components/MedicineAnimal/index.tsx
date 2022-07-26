@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ContainerCustom, ContainerHeader } from "../Medicines/styles"
 // import Dose from '../../assets/dose.png'
-// import Farmacology from '../../assets/farmacology.png'
+import FarmacologyIcon from '../../assets/farmacology.png'
 import Bibliography from '../../assets/bibliography.png'
 import { ArrowBackRounded } from "@mui/icons-material";
 import {

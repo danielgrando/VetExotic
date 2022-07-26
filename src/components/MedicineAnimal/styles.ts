@@ -74,9 +74,10 @@ export const ButtonDosage = styled.button`
     border-radius: 10px;
     margin: 0 auto;
 `
-export const TextButton = styled.span`
+export const TextButton = styled.p`
+    font-family:'Comfortaa';
     color: ${props => props.theme.colors.text};
-    font-size: 1.2em;
+    font-size: 1.1em;
 `
 
 export const ButtonFarmacology = styled.button`

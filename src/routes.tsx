@@ -12,9 +12,9 @@ export const AppRoutes = () => {
             <Route path='/' element={<StartAnimals />} />
             <Route path='/medicines/:animal' element={<Medicines />} />
             <Route path='/:animal/:medicine' element={<MedicineAnimal />} />
-            <Route path='/:animal/:medicine/dosages' element={<Dosages />} />
+            {/* <Route path='/:animal/:medicine/dosages' element={<Dosages />} />
             <Route path='/:animal/:medicine/farmacology' element={<Farmacology />} />
-            <Route path='/:animal/:medicine/bibliography' element={<Bibliography />} />
+            <Route path='/:animal/:medicine/bibliography' element={<Bibliography />} /> */}
             <Route path='*' element={<Navigate to='/' />} />
         </Routes>
     )

@@ -87,7 +87,7 @@ const MedicineAnimal: React.FC = () => {
                         textColor="inherit"
                         value={value}
                         onChange={handleChange}
-                        aria-label="basic tabs example"
+                        aria-label="tabs medicine"
                     >
                         <AntTab label="Descrição" />
                         <AntTab label="Dose" />

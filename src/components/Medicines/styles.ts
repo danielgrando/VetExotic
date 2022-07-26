@@ -49,7 +49,8 @@ export const ContainerTitleMedicines = styled.div`
     margin-top: 3rem;
 `
 export const ContainerMedicines = styled.div`
-    min-width: 85%;
+    width: 85%;
+    min-height: 60%;
     display: block;
     margin-top: 1rem;
 `

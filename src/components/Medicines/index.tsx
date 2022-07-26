@@ -106,7 +106,9 @@ const Medicines: React.FC = () => {
                 <div />
             </ContainerTitleMedicines>
             <ContainerMedicines>
-                {loading ? <CircularProgress color="success" value={100} /> :
+                {loading ? <CircularProgress color="success" value={100} style={{
+                    display: 'flex', margin: 'auto',
+                }} /> :
                     medicines.map((medicine, index) => (
                         <Medicine onClick={() => setMedicineContextAndNavigateToMedicinesDetails(medicine)} key={index}>
                             <MedicineName>{medicine.name}</MedicineName>

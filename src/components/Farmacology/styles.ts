@@ -36,5 +36,5 @@ export const ContainerText = styled.div`
 export const FarmacologyText = styled.p`
     text-align: justify;
     margin-bottom: 0.7em;
-    font-size: 1em;
+    font-size: 1.1em;
 `

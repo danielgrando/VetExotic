@@ -57,7 +57,7 @@ const Dosages: React.FC = () => {
     return (
         <ContainerDosage>
             {loading ?
-                <CircularProgress color="success" value={loading} />
+                <CircularProgress color="success" value={loading} style={{ display: 'flex', margin: 'auto' }} />
                 :
                 dosage?.map(dosage => (
                     <AccordionCustom

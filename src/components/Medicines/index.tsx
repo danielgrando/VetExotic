@@ -1,5 +1,5 @@
 import { ArrowBackRounded, ArrowForwardIosRounded } from "@mui/icons-material";
-import { CircularProgress, InputAdornment } from "@mui/material";
+import { Input, CircularProgress, InputAdornment } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/api";
@@ -7,9 +7,11 @@ import { MedicineContext } from '../../utils/MedicineContext'
 import { AnimalContext } from '../../utils/animalGeneralContext'
 import {
     ContainerCustom, ContainerHeader, AnimalTitle, ContainerSearch,
-    InputMedicine, ContainerTitleMedicines, ContainerMedicines,
+
+    ContainerTitleMedicines, ContainerMedicines,
     Medicine, TitleMedicine, MedicineName, SearchIcon
 } from "./styles";
+import { ThemeContext } from "styled-components";
 interface IMedicine {
     id: string
     name: string
@@ -29,6 +31,8 @@ interface IAnimalMedicines {
     updated_at: Date
 }
 
+
+
 const Medicines: React.FC = () => {
     const navigate = useNavigate()
 
@@ -37,8 +41,8 @@ const Medicines: React.FC = () => {
     const [search, setSearch] = useState('')
     const [loading, setLoading] = useState(100)
 
+    const { colors } = useContext(ThemeContext)
     const { animal } = useContext(AnimalContext);
-
     const { setMedicine } = useContext(MedicineContext)
 
     const getMedicines = async () => {
@@ -88,9 +92,10 @@ const Medicines: React.FC = () => {
                 <div style={{ height: '25px', width: '25px' }} />
             </ContainerHeader>
             <ContainerSearch>
-                <InputMedicine
-                    // sx={{ input: { color: 'white' } }}
-                    placeholder="Procurar por medicamento" fullWidth
+                <Input
+                    style={{ fontFamily: 'Comfortaa', color: colors.text }}
+                    placeholder="Procurar por medicamento"
+                    fullWidth
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     onClick={filterMedicines}

@@ -12,6 +12,7 @@ import api from "../../api/api";
 import { useContext, useEffect, useState } from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { AccordionDetails, AccordionSummary, CircularProgress } from "@mui/material";
+import { ThemeContext } from "styled-components";
 interface IDosage {
     id: string
     animalId: string
@@ -29,6 +30,7 @@ const Dosages: React.FC = () => {
     const [dosage, setDosage] = useState<IDosage[]>([])
     const [loading, setLoading] = useState(100)
 
+    const { colors } = useContext(ThemeContext)
     const { animal } = useContext(AnimalContext)
     const { medicine } = useContext(MedicineContext)
 
@@ -64,7 +66,7 @@ const Dosages: React.FC = () => {
                         TransitionProps={{ unmountOnExit: true }}
                         key={dosage.id}
                         defaultExpanded={dosage.name === 'Dose Geral' ? true : false}
-                    // style={{  }}
+                        style={{ background: colors.background }}
                     >
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}

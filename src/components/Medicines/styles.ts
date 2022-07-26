@@ -1,5 +1,4 @@
 import { Search } from "@mui/icons-material";
-import { Input } from "@mui/material";
 import styled from "styled-components";
 
 export const ContainerCustom = styled.div`
@@ -34,9 +33,6 @@ export const MedicineName = styled.p`
 export const ContainerSearch = styled.div`
     margin-top: 3.5vh;
     width: 85%;
-`
-export const InputMedicine = styled(Input)`
-    color: 'white';
 `
 
 export const SearchIcon = styled(Search)`

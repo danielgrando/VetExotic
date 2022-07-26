@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ContainerCustom, ContainerHeader } from "../Medicines/styles"
 // import Dose from '../../assets/dose.png'
-import FarmacologyIcon from '../../assets/farmacology.png'
+// import FarmacologyIcon from '../../assets/farmacology.png'
 import Bibliography from '../../assets/bibliography.png'
 import { ArrowBackRounded } from "@mui/icons-material";
 import {
@@ -30,6 +30,9 @@ const AntTab = styled(Tab)({
     fontSize: '1.1em',
     fontWeight: 'bold',
     textTransform: 'none',
+    // '&.Mui-selected': {
+    //     color: "rgb(48, 255, 44)"
+    // },
 });
 
 interface TabPanelProps {

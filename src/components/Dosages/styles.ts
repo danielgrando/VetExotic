@@ -38,10 +38,7 @@ export const ContainerDosageDetails = styled.div`
 `
 
 export const ContainerDosage = styled.div`
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
+    width: 100%;
 `
 export const TextNameDosage = styled.h3`
     color: ${props => props.theme.colors.text} !important;
@@ -57,11 +54,8 @@ export const Title = styled.h3`
     color: ${props => props.theme.colors.text} !important;
 `
 export const AccordionCustom = styled(Accordion)`
-    width: 85%;
     background: ${props => props.theme.colors.background};
 `
-
-
 export const Text = styled.p`
     font-size: 1em;
     margin-top: 0.3rem;

@@ -35,8 +35,6 @@ export const MedicineIcon = styled(Medicine)`
 export const ContainerMedicineDetails = styled.div`
     width: 85%;
     height: 65%;
-    display: flex;
-    flex-direction: column;
     margin-top: 3rem;
 `
 export const ClassificationDescriptionContainer = styled.div`

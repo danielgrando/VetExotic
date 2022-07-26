@@ -27,12 +27,11 @@ const Farmacology: React.FC = () => {
         // </ContainerHeader>
         // <SubTitle>{medicine?.name}</SubTitle>
         <>
-            <div style={{ width: '85%', margin: 'auto' }}>
-                {pharmacology?.map((text, index) =>
-                    <FarmacologyText key={index}>
-                        {text}
-                    </FarmacologyText>)}
-            </div>
+
+            {pharmacology?.map((text, index) =>
+                <FarmacologyText key={index}>
+                    {text}
+                </FarmacologyText>)}
 
         </>
 

@@ -43,7 +43,7 @@ function TabPanel(props: TabPanelProps) {
 
     return (
         <div
-            style={{ marginTop: '1.5rem' }}
+            style={{ marginTop: '1.5rem', width: '100%' }}
             role="tabpanel"
             hidden={value !== index}
             id={`simple-tabpanel-${index}`}
@@ -68,7 +68,7 @@ const MedicineAnimal: React.FC = () => {
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
-    console.log(medicine)
+
     return (
         <ContainerCustom>
             <ContainerHeader>
@@ -95,7 +95,7 @@ const MedicineAnimal: React.FC = () => {
                     </AntTabs>
                 </Box>
                 <TabPanel value={value} index={0}>
-                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '50vh' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '55vh', width: '100%' }}>
                         <ClassificationDescriptionContainer>
                             <ClassificationTitle>
                                 Classificação

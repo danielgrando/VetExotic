@@ -10,7 +10,7 @@ export default {
         backgroundMedicinesHover: '#000',
 
         backgroundButton: '#333',
-        backgroundDosages: '#222',
+        backgroundDosages: '#333',
         background: '#222',
         textTitle: '#30FF2C',
         text: '#fff'

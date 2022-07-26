@@ -3,15 +3,14 @@
 // import { ArrowBackRounded } from "@mui/icons-material";
 import {
     ContainerDosageDetails, DosageText, Text, Title, ContainerItemDetail, ContainerDosage,
-    TextNameDosage,
-    AccordionCustom
+    TextNameDosage
 } from "./styles";
 import { AnimalContext } from '../../utils/animalGeneralContext'
 import { MedicineContext } from '../../utils/MedicineContext'
 import api from "../../api/api";
 import { useContext, useEffect, useState } from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { AccordionDetails, AccordionSummary, CircularProgress } from "@mui/material";
+import { AccordionDetails, AccordionSummary, CircularProgress, Accordion } from "@mui/material";
 import { ThemeContext } from "styled-components";
 interface IDosage {
     id: string
@@ -62,11 +61,11 @@ const Dosages: React.FC = () => {
                 <CircularProgress color="success" value={loading} style={{ display: 'flex', margin: 'auto' }} />
                 :
                 dosage?.map(dosage => (
-                    <AccordionCustom
+                    <Accordion
                         TransitionProps={{ unmountOnExit: true }}
                         key={dosage.id}
                         defaultExpanded={dosage.name === 'Dose Geral' ? true : false}
-                        style={{ background: colors.background }}
+                        style={{ background: colors.backgroundDosages }}
                     >
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
@@ -95,7 +94,7 @@ const Dosages: React.FC = () => {
                                 </ContainerItemDetail>
                             </ContainerDosageDetails>
                         </AccordionDetails>
-                    </AccordionCustom>
+                    </Accordion>
                 ))
             }
         </ContainerDosage>

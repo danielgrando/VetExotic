@@ -1,9 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import { ContainerCustom, ContainerHeader } from "../Medicines/styles"
-import { ArrowBackRounded } from "@mui/icons-material";
+// import { useNavigate } from "react-router-dom";
+// import { ContainerCustom, ContainerHeader } from "../Medicines/styles"
+// import { ArrowBackRounded } from "@mui/icons-material";
 import {
-    ContainerDosageDetails, MedicineTitle,
-    MedicineIcon, SubTitle, DosageText, Text, Title, ContainerItemDetail, ContainerDosage,
+    ContainerDosageDetails, DosageText, Text, Title, ContainerItemDetail, ContainerDosage,
     TextNameDosage,
     AccordionCustom
 } from "./styles";
@@ -12,7 +11,7 @@ import { MedicineContext } from '../../utils/MedicineContext'
 import api from "../../api/api";
 import { useContext, useEffect, useState } from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { AccordionDetails, AccordionSummary } from "@mui/material";
+import { AccordionDetails, AccordionSummary, CircularProgress } from "@mui/material";
 interface IDosage {
     id: string
     animalId: string
@@ -26,9 +25,9 @@ interface IDosage {
 }
 
 const Dosages: React.FC = () => {
-    const navigate = useNavigate()
 
     const [dosage, setDosage] = useState<IDosage[]>([])
+    const [loading, setLoading] = useState(100)
 
     const { animal } = useContext(AnimalContext)
     const { medicine } = useContext(MedicineContext)
@@ -41,6 +40,7 @@ const Dosages: React.FC = () => {
             if (data) {
                 setDosage(data)
                 localStorage.setItem("dosage", JSON.stringify(data))
+                setLoading(0)
             }
         } catch (error) {
             const dosagesCached: any = localStorage.getItem("dosages")
@@ -55,18 +55,11 @@ const Dosages: React.FC = () => {
     }, [])
 
     return (
-        <ContainerCustom>
-            <ContainerHeader>
-                <ArrowBackRounded style={{ transform: 'scale(1.5)', cursor: 'pointer' }} onClick={() => navigate(`/${animal?.name}/${medicine?.name}`)} />
-                <MedicineTitle>
-                    <MedicineIcon width={22} height={22} />
-                    {medicine?.name}
-                </MedicineTitle>
-                <div style={{ height: '25px', width: '25px' }} />
-            </ContainerHeader>
-            <SubTitle>{animal?.name}</SubTitle>
-            <ContainerDosage>
-                {dosage?.map(dosage => (
+        <ContainerDosage>
+            {loading ?
+                <CircularProgress color="success" value={loading} />
+                :
+                dosage?.map(dosage => (
                     <AccordionCustom key={dosage.id} defaultExpanded={dosage.name === 'Dose Geral' ? true : false}
                     // style={{  }}
                     >
@@ -98,9 +91,9 @@ const Dosages: React.FC = () => {
                             </ContainerDosageDetails>
                         </AccordionDetails>
                     </AccordionCustom>
-                ))}
-            </ContainerDosage>
-        </ContainerCustom >
+                ))
+            }
+        </ContainerDosage>
     )
 }
 

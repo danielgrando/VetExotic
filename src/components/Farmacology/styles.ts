@@ -28,13 +28,13 @@ export const SubTitle = styled.p`
 `
 
 export const ContainerText = styled.div`
-    max-width: 85%;
-    min-height: 65%;
-    margin-top: 2rem;
+    text-align: center;
+    width: 85%;
+    height: 65%;
 `
 
 export const FarmacologyText = styled.p`
     text-align: justify;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.7em;
     font-size: 1em;
 `

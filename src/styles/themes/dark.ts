@@ -11,6 +11,7 @@ export default {
 
         backgroundButton: '#333',
         backgroundDosages: '#333',
+        hoverInputMedicines: '#30FF2C',
         background: '#222',
         textTitle: '#30FF2C',
         text: '#fff'

@@ -34,7 +34,6 @@ export const ContainerSearch = styled.div`
     margin-top: 3.5vh;
     width: 85%;
 `
-
 export const SearchIcon = styled(Search)`
     color: ${props => props.theme.colors.text}
 `

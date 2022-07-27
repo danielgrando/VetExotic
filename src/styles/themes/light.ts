@@ -13,6 +13,7 @@ export default {
 
         backgroundButton: 'rgba(243, 243, 243, 0.5)',
         backgroundDosages: '#fff',
+        hoverInputMedicines: 'rgba(173, 250, 255, 1)',
         background: 'white',
         textTitle: '#30FF2C',
         text: '#000000'

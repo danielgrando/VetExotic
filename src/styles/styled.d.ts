@@ -13,6 +13,7 @@ declare module 'styled-components' {
 
             backgroundButton: string
             backgroundDosages: string
+            hoverInputMedicines: string
             background: string
             textTitle: string
             text: string

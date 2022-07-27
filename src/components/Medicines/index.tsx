@@ -7,11 +7,11 @@ import { MedicineContext } from '../../utils/MedicineContext'
 import { AnimalContext } from '../../utils/animalGeneralContext'
 import {
     ContainerCustom, ContainerHeader, AnimalTitle, ContainerSearch,
-
     ContainerTitleMedicines, ContainerMedicines,
     Medicine, TitleMedicine, MedicineName, SearchIcon
 } from "./styles";
 import { ThemeContext } from "styled-components";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 interface IMedicine {
     id: string
     name: string
@@ -30,8 +30,6 @@ interface IAnimalMedicines {
     created_at: Date
     updated_at: Date
 }
-
-
 
 const Medicines: React.FC = () => {
     const navigate = useNavigate()
@@ -84,6 +82,14 @@ const Medicines: React.FC = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    const theme = createTheme({
+        palette: {
+            primary: {
+                main: colors.hoverInputMedicines,
+            },
+        }
+    });
+
     return (
         <ContainerCustom>
             <ContainerHeader>
@@ -92,19 +98,22 @@ const Medicines: React.FC = () => {
                 <div style={{ height: '25px', width: '25px' }} />
             </ContainerHeader>
             <ContainerSearch>
-                <Input
-                    style={{ fontFamily: 'Comfortaa', color: colors.text }}
-                    placeholder="Procurar por medicamento"
-                    fullWidth
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    onClick={filterMedicines}
-                    onKeyUp={filterMedicines}
-                    endAdornment={
-                        <InputAdornment position="end" >
-                            <SearchIcon height={60} width={60} />
-                        </InputAdornment>
-                    } />
+                <ThemeProvider theme={theme}>
+                    <Input
+                        color="primary"
+                        style={{ fontFamily: 'Comfortaa', color: colors.text }}
+                        placeholder="Procurar por medicamento"
+                        fullWidth
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        onClick={filterMedicines}
+                        onKeyUp={filterMedicines}
+                        endAdornment={
+                            <InputAdornment position="end" >
+                                <SearchIcon height={60} width={60} />
+                            </InputAdornment>
+                        } />
+                </ThemeProvider>
             </ContainerSearch>
             <ContainerTitleMedicines>
                 <TitleMedicine>Medicamentos</TitleMedicine>

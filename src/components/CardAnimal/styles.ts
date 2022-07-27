@@ -5,8 +5,8 @@ export const CardAnimals = styled(Card)`
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 120px;
-    min-height: 115px;
+    min-width: 130px;
+    min-height: 120px;
     background: ${props => props.theme.colors.textTitle} !important;
     cursor: pointer;
     border-radius: 15px !important;

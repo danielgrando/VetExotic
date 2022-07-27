@@ -21,8 +21,10 @@ const StartAnimals: React.FC = () => {
         try {
             const response = await api.get('/v1/animals')
             const { data } = response
+
             if (data) {
-                setAnimals(data)
+                const orderedAnimals = data.sort((currentAnimal, previousAnimal) => +currentAnimal.id > +previousAnimal.id ? 1 : -1)
+                setAnimals(orderedAnimals)
                 localStorage.setItem("animals", JSON.stringify(data))
                 setLoading(0)
             }

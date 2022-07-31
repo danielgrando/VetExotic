@@ -1,6 +1,3 @@
-// import { useNavigate } from "react-router-dom";
-// import { ContainerCustom, ContainerHeader } from "../Medicines/styles"
-// import { ArrowBackRounded } from "@mui/icons-material";
 import {
     ContainerDosageDetails, DosageText, Text, Title, ContainerItemDetail, ContainerDosage,
     TextNameDosage
@@ -78,19 +75,19 @@ const Dosages: React.FC = () => {
                             <ContainerDosageDetails>
                                 <ContainerItemDetail>
                                     <Title>Vias de aplicação</Title>
-                                    <Text>{dosage.application_routes}</Text>
+                                    <Text>{dosage.application_routes ? dosage.application_routes : "Não informado."}</Text>
                                 </ContainerItemDetail>
                                 <ContainerItemDetail>
                                     <Title>Frequência</Title>
-                                    <Text>{dosage.frequency}</Text>
+                                    <Text>{dosage.frequency ? dosage.frequency : "Não informado."}</Text>
                                 </ContainerItemDetail>
                                 <ContainerItemDetail>
                                     <Title>Dose</Title>
-                                    <DosageText>{dosage.dosage}</DosageText>
+                                    <DosageText>{dosage.dosage ? dosage.dosage : "Não informado."}</DosageText>
                                 </ContainerItemDetail>
                                 <ContainerItemDetail>
                                     <Title>Observações</Title>
-                                    <Text>{dosage.observations}</Text>
+                                    <Text>{dosage.observations ? dosage.observations : "Não informado."}</Text>
                                 </ContainerItemDetail>
                             </ContainerDosageDetails>
                         </AccordionDetails>

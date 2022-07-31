@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import api from "../../api/api"
 import Animals from "../Animals"
 import { BoxMain, TextSection } from "./styles"
-
 interface IAnimals {
     id: string
     name: string

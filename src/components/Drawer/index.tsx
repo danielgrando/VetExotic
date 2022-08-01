@@ -33,7 +33,7 @@ export default function ResponsiveDrawer(props: Props) {
             <List>
                 {['FeedBack', 'Sobre'].map((text, index) => (
                     <ListItem key={text} disablePadding>
-                        <ListItemButton href={text === "Sobre" ? "https://github.com/danielgrando" : "https://google.com"} target="_blank">
+                        <ListItemButton href={text === "Sobre" ? "https://github.com/danielgrando" : "https://forms.gle/QtZPyRb7QhM2rr5TA"} target="_blank">
                             <ListItemIcon style={{ color: title === 'light' ? 'black' : 'white' }}>
                                 {index % 2 === 0 ? <MailIcon /> : <InfoIcon />}
                             </ListItemIcon>

@@ -42,7 +42,7 @@ const Dosages: React.FC = () => {
                 });
                 const dosageWithoutAGeneralDosage = dosagesOrganized.filter(dosage => dosage.name !== "Dose Geral")
                 if (getGeneralDosage) {
-                    dosageWithoutAGeneralDosage.push(getGeneralDosage)
+                    dosageWithoutAGeneralDosage.unshift(getGeneralDosage)
                 }
                 setDosage(dosageWithoutAGeneralDosage)
                 localStorage.setItem("dosage", JSON.stringify(dosageWithoutAGeneralDosage))

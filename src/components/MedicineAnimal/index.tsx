@@ -27,10 +27,7 @@ const AntTab = styled(Tab)({
     ],
     fontSize: '1.1em',
     fontWeight: 'bold',
-    textTransform: 'none',
-    // '&.Mui-selected': {
-    //     color: "rgb(48, 255, 44)"
-    // },
+    textTransform: 'none'
 });
 
 interface TabPanelProps {

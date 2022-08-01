@@ -49,14 +49,18 @@ const Medicines: React.FC = () => {
             const { data } = response
             if (data) {
                 const medicinesData = data.map((medicines: IAnimalMedicines) => { return medicines.medicine })
-                setMedicines(medicinesData)
-                setAllMedicines(medicinesData)
+                const medicinesOrganized = medicinesData.sort(function (currentMedicine, previousMedicine) {
+                    return currentMedicine.name < previousMedicine.name ? -1 : currentMedicine.name > previousMedicine.name ? 1 : 0;
+                });
+                setMedicines(medicinesOrganized)
+                setAllMedicines(medicinesOrganized)
                 localStorage.setItem("medicines", JSON.stringify(data))
                 setLoading(0)
             }
         } catch (error) {
             const medicinesCached: any = localStorage.getItem("medicines")
             setMedicines(JSON.parse(medicinesCached))
+            setLoading(0)
         }
     }
 

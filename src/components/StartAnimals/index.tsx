@@ -24,12 +24,13 @@ const StartAnimals: React.FC = () => {
             if (data) {
                 const orderedAnimals = data.sort((currentAnimal, previousAnimal) => +currentAnimal.id > +previousAnimal.id ? 1 : -1)
                 setAnimals(orderedAnimals)
-                localStorage.setItem("animals", JSON.stringify(data))
+                localStorage.setItem("animals", JSON.stringify(orderedAnimals))
                 setLoading(0)
             }
         } catch (error) {
             const animalsCached: any = localStorage.getItem("animals")
             setAnimals(JSON.parse(animalsCached))
+            setLoading(0)
         }
     }
 

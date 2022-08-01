@@ -36,13 +36,22 @@ const Dosages: React.FC = () => {
             const response = await api.get(`/v1/animal-dosage/${animal?.id}/${medicine?.id}`)
             const { data } = response
             if (data) {
-                setDosage(data)
-                localStorage.setItem("dosage", JSON.stringify(data))
+                const getGeneralDosage = data.find(dosage => dosage.name === "Dose Geral")
+                const dosagesOrganized = data.sort(function (currentDosage, previousDosage) {
+                    return currentDosage.name < previousDosage.name ? -1 : currentDosage.name > previousDosage.name ? 1 : 0;
+                });
+                const dosageWithoutAGeneralDosage = dosagesOrganized.filter(dosage => dosage.name !== "Dose Geral")
+                if (getGeneralDosage) {
+                    dosageWithoutAGeneralDosage.push(getGeneralDosage)
+                }
+                setDosage(dosageWithoutAGeneralDosage)
+                localStorage.setItem("dosage", JSON.stringify(dosageWithoutAGeneralDosage))
                 setLoading(0)
             }
         } catch (error) {
             const dosagesCached: any = localStorage.getItem("dosages")
             setDosage(JSON.parse(dosagesCached))
+            setLoading(0)
         }
     }
 

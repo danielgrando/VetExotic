@@ -13,7 +13,7 @@ export const CardAnimals = styled(Card)`
 `
 export const TextAnimal = styled.p`
     margin-top: 0.5rem;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 1.1em;
 `
 

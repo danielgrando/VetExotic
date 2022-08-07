@@ -8,7 +8,7 @@ import Toolbar from '@mui/material/Toolbar';
 import { useState, useContext } from 'react';
 import { ThemeContext } from 'styled-components'
 import Header from '../Header';
-import { DrawerDesktop, DrawerMobile, ListItemTextDrawer, ListItemButton } from './style';
+import { DrawerDesktop, DrawerMobile, ListItemTextDrawer, ListItemButton, TCCAbout, TCCText } from './style';
 import { ListItemIcon } from '@mui/material';
 
 const drawerWidth = 240;
@@ -41,6 +41,10 @@ export default function ResponsiveDrawer(props: Props) {
                         </ListItemButton>
                     </ListItem>
                 ))}
+                <TCCAbout>
+                    <TCCText>TCC - Trabalho de conclusão de curso</TCCText>
+                    <TCCText>Orientador: Profº Dr. Mauricio Massaru Arimoto </TCCText>
+                </TCCAbout>
             </List>
         </div>
     );

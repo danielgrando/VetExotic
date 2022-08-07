@@ -1,5 +1,4 @@
-import { CardContent, CardMedia, Typography } from '@mui/material'
-import { CardAnimals } from './styles'
+import { CardAnimals, TextAnimal, CardContentCustom } from './styles'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { AnimalContext } from '../../utils/animalGeneralContext'
@@ -28,16 +27,15 @@ const CardAnimal: React.FC<Props> = ({ animalProps }) => {
 
     return (
         <CardAnimals onClick={() => setAnimalContextAndNavigateToMedicines()} >
-            <CardContent>
-                <CardMedia
-                    component="img"
-                    image={'data:image/svg+xml;base64,' + animalProps.icon}
+            <CardContentCustom>
+                <img
+                    src={'data:image/svg+xml;base64,' + animalProps.icon}
                     alt={animalProps.name}
                 />
-                <Typography variant="body2">
-                    {/* {card.id} */}
-                </Typography>
-            </CardContent>
+                <TextAnimal>
+                    {animalProps.name}
+                </TextAnimal>
+            </CardContentCustom>
         </CardAnimals>
     )
 }

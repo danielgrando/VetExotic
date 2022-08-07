@@ -34,4 +34,14 @@ export const ListItemButton = styled.a`
     }
 `
 
+export const TCCAbout = styled.div`
+    padding: 1rem;
+`
+
+export const TCCText = styled.p`
+    font-size: 0.9em;
+    padding: 0.5rem;
+    color: ${props => props.theme.colors.text} !important;
+`
+
 
